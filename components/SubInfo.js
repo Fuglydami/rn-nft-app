@@ -75,6 +75,7 @@ export const EndDate = () => {
       style={{
         paddingHorizontal: SIZES.font,
         paddingVertical: SIZES.base,
+        borderRadius: SIZES.medium,
         backgroundColor: COLORS.white,
         justifyContent: "center",
         alignItems: "center",

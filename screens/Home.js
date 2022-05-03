@@ -7,8 +7,14 @@ import {
   Platform,
   StatusBar,
 } from "react-native";
-import { COLORS, NFTData } from "../constants";
-import { HomeHeader, NFTCard, FocusedStatusBar } from "../components";
+import { COLORS, NFTData, SHADOWS, SIZES } from "../constants";
+import {
+  HomeHeader,
+  NFTCard,
+  FocusedStatusBar,
+  RectButton,
+  NavIcons,
+} from "../components";
 import { PrivateValueStore } from "@react-navigation/native";
 
 const Home = () => {
@@ -35,6 +41,21 @@ const Home = () => {
       }}
     >
       <FocusedStatusBar background={COLORS.primary} />
+
+      <View
+        style={{
+          width: "100%",
+          position: "absolute",
+          bottom: 0,
+          paddingVertical: SIZES.font,
+          justifyContent: "center",
+          alignItems: "center",
+          backgroundColor: "rgba(255,255,255,0.5)",
+          zIndex: 1,
+        }}
+      >
+        <NavIcons />
+      </View>
 
       <View style={{ flex: 1 }}>
         <View style={{ zIndex: 0 }}>

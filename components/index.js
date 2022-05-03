@@ -5,6 +5,7 @@ import { SubInfo } from "./SubInfo";
 import { CircleButton, RectButton } from "./Button";
 import DetailsBid from "./DetailsBid";
 import DetailsDecs from "./DetailsDecs";
+import NavIcons from "./NavIcons";
 
 export {
   HomeHeader,
@@ -15,4 +16,5 @@ export {
   SubInfo,
   DetailsBid,
   DetailsDecs,
+  NavIcons,
 };

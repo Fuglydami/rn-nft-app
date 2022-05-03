@@ -68,7 +68,14 @@ const Details = ({ route, navigation }) => {
           zIndex: 1,
         }}
       >
-        <RectButton minWidth={170} fontSize={SIZES.large} {...SHADOWS.dark} />
+        <RectButton
+          minWidth={170}
+          fontSize={SIZES.large}
+          padding={SIZES.small}
+          {...SHADOWS.dark}
+        >
+          Place a bid
+        </RectButton>
       </View>
       <FlatList
         data={data.bids}

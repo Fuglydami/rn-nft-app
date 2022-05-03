@@ -24,7 +24,6 @@ export default {
   heart,
   left,
   search,
-
   logo,
   nft01,
   nft02,
@@ -33,7 +32,6 @@ export default {
   nft05,
   nft06,
   nft07,
-
   person01,
   person02,
   person03,

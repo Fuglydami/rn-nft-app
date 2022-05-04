@@ -1,4 +1,4 @@
-import { View, Text } from "react-native";
+import { View, Text, StyleSheet } from "react-native";
 import React, { useState } from "react";
 import { EthPrice, NFTTitle } from "./SubInfo";
 import { COLORS, FONTS, SIZES } from "../constants";
@@ -8,14 +8,7 @@ const DetailsDecs = ({ data }) => {
   const [readMore, setReadMore] = useState(false);
   return (
     <>
-      <View
-        style={{
-          width: "100%",
-          flexDirection: "row",
-          justifyContent: "space-between",
-          alignItems: "center",
-        }}
-      >
+      <View style={styles.container}>
         <NFTTitle
           title={data.name}
           subTitle={data.creator}
@@ -25,24 +18,9 @@ const DetailsDecs = ({ data }) => {
         <EthPrice price={data.price} />
       </View>
       <View style={{ marginVertical: SIZES.extraLarge * 1.5 }}>
-        <Text
-          style={{
-            fontSize: SIZES.font,
-            fontFamily: FONTS.semiBold,
-            color: COLORS.primary,
-          }}
-        >
-          Description
-        </Text>
+        <Text style={styles.detailsContainer}>Description</Text>
         <View style={{ marginTop: SIZES.base }}>
-          <Text
-            style={{
-              fontSize: SIZES.small,
-              fontFamily: FONTS.regular,
-              color: COLORS.secondary,
-              lineHeight: SIZES.large,
-            }}
-          >
+          <Text style={styles.textContainer}>
             {text}
             {!readMore && "..."}
             <Text
@@ -55,11 +33,7 @@ const DetailsDecs = ({ data }) => {
                   setReadMore(false);
                 }
               }}
-              style={{
-                fontSize: SIZES.small,
-                fontFamily: FONTS.semiBold,
-                color: COLORS.primary,
-              }}
+              style={styles.sliceDescription}
             >
               {readMore ? "Show Less" : "Read More"}
             </Text>
@@ -69,5 +43,30 @@ const DetailsDecs = ({ data }) => {
     </>
   );
 };
+
+const styles = StyleSheet.create({
+  container: {
+    width: "100%",
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
+  },
+  detailsContainer: {
+    fontSize: SIZES.font,
+    fontFamily: FONTS.semiBold,
+    color: COLORS.primary,
+  },
+  textContainer: {
+    fontSize: SIZES.small,
+    fontFamily: FONTS.regular,
+    color: COLORS.secondary,
+    lineHeight: SIZES.large,
+  },
+  sliceDescription: {
+    fontSize: SIZES.small,
+    fontFamily: FONTS.semiBold,
+    color: COLORS.primary,
+  },
+});
 
 export default DetailsDecs;

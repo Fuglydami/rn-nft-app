@@ -1,4 +1,4 @@
-import { View, TouchableOpacity } from "react-native";
+import { View, TouchableOpacity, StyleSheet } from "react-native";
 import React from "react";
 import { COLORS, FONTS, SIZES } from "../constants";
 import Ionicons from "@expo/vector-icons/Ionicons";
@@ -6,22 +6,8 @@ import { Entypo, Feather } from "@expo/vector-icons";
 
 const NavIcons = () => {
   return (
-    <View
-      style={{
-        flex: 1,
-        borderRadius: 50,
-        backgroundColor: COLORS.primary,
-        minWidth: 300,
-      }}
-    >
-      <View
-        style={{
-          flexDirection: "row",
-          justifyContent: "space-between",
-          paddingVertical: SIZES.medium,
-          paddingHorizontal: SIZES.extraLarge,
-        }}
-      >
+    <View style={styles.container}>
+      <View style={styles.iconContainer}>
         <TouchableOpacity>
           <Entypo name="grid" size={36} color={COLORS.gray} />
         </TouchableOpacity>
@@ -38,5 +24,20 @@ const NavIcons = () => {
     </View>
   );
 };
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    borderRadius: 50,
+    backgroundColor: COLORS.primary,
+    minWidth: 300,
+  },
+  iconContainer: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    paddingVertical: SIZES.medium,
+    paddingHorizontal: SIZES.extraLarge,
+  },
+});
 
 export default NavIcons;

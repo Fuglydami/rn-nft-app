@@ -7,6 +7,7 @@ import {
   Platform,
   StatusBar,
   FlatList,
+  StyleSheet,
 } from "react-native";
 import { COLORS, SIZES, SHADOWS, FONTS, assets } from "../constants";
 import {
@@ -20,11 +21,11 @@ import {
 } from "../components";
 
 const DetailsHeader = ({ data, navigation }) => (
-  <View style={{ width: "100%", height: 373 }}>
+  <View style={styles.detailsHeaderContainer}>
     <Image
       source={data.image}
       resizeMode="cover"
-      style={{ width: "100%", height: "100%" }}
+      style={styles.detailsHeaderImage}
     />
 
     <CircleButton
@@ -45,29 +46,13 @@ const DetailsHeader = ({ data, navigation }) => (
 const Details = ({ route, navigation }) => {
   const { data } = route.params;
   return (
-    <SafeAreaView
-      style={{
-        flex: 1,
-        // paddingTop: Platform.OS === "android" ? StatusBar.currentHeight : 0,
-      }}
-    >
+    <SafeAreaView style={styles.container}>
       <FocusedStatusBar
         barStyle="dark-content"
         background="transparent"
         translucent={true}
       />
-      <View
-        style={{
-          width: "100%",
-          position: "absolute",
-          bottom: 0,
-          paddingVertical: SIZES.font,
-          justifyContent: "center",
-          alignItems: "center",
-          backgroundColor: "rgba(255,255,255,0.5)",
-          zIndex: 1,
-        }}
-      >
+      <View style={styles.cardButtonContainer}>
         <RectButton
           minWidth={170}
           fontSize={SIZES.large}
@@ -87,18 +72,10 @@ const Details = ({ route, navigation }) => {
           <>
             <DetailsHeader data={data} navigation={navigation} />
             <SubInfo />
-            <View style={{ padding: SIZES.font }}>
+            <View style={styles.detailsContainer}>
               <DetailsDecs data={data} />
               {data.bids.length > 0 && (
-                <Text
-                  style={{
-                    fontSize: SIZES.font,
-                    fontFamily: FONTS.semiBold,
-                    color: COLORS.primary,
-                  }}
-                >
-                  Current Bids
-                </Text>
+                <Text style={styles.detailsText}>Current Bids</Text>
               )}
             </View>
           </>
@@ -107,5 +84,37 @@ const Details = ({ route, navigation }) => {
     </SafeAreaView>
   );
 };
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+  },
+  detailsHeaderContainer: {
+    width: "100%",
+    height: 373,
+  },
+  detailsHeaderImage: {
+    width: "100%",
+    height: "100%",
+  },
+  detailsText: {
+    fontSize: SIZES.font,
+    fontFamily: FONTS.semiBold,
+    color: COLORS.primary,
+  },
+  detailsContainer: {
+    padding: SIZES.font,
+  },
+  cardButtonContainer: {
+    width: "100%",
+    position: "absolute",
+    bottom: 0,
+    paddingVertical: SIZES.font,
+    justifyContent: "center",
+    alignItems: "center",
+    backgroundColor: "rgba(255,255,255,0.5)",
+    zIndex: 1,
+  },
+});
 
 export default Details;
